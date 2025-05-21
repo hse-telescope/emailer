@@ -30,11 +30,6 @@ func New(kafkaCfg kafka.QueueCredentials) (Emailer, error) {
 	}, nil
 }
 
-type Message struct {
-	Title   string `json:"title"`
-	Message string `json:"message"`
-}
-
 const (
 	defaultPartition = 0
 )
