@@ -15,9 +15,13 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	w.SendEmail(context.Background(), wrapper.Message{
+
+	err = w.SendEmail(context.Background(), wrapper.Message{
 		EMail:   "ol-sidorenkov@mail.ru",
 		Title:   "lol",
 		Message: "kek",
 	})
+	if err != nil {
+		panic(err)
+	}
 }
