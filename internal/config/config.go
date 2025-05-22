@@ -17,8 +17,8 @@ type EmailCredentials struct {
 
 // Config ...
 type Config struct {
-	EmailCredentials EmailCredentials
-	QueueCredentials kafka.QueueCredentials
+	EmailCredentials EmailCredentials       `json:"email_credentials"`
+	QueueCredentials kafka.QueueCredentials `json:"queue_credentials"`
 }
 
 func Parse(path string) (Config, error) {

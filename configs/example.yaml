@@ -1,8 +1,8 @@
 email_credentials:
-  host: smtp.gmail.com
+  host: smtp.mail.ru
   port: 587
-  email: smth@gmail.com
-  password: lolkek
+  email: hse-telescope@mail.ru
+  password: ZsXzJYH4P7BtEZk6r5Xd
 
 queue_credentials:
   urls:
