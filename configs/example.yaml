@@ -1,0 +1,10 @@
+email_credentials:
+  host: smtp.gmail.com
+  port: 587
+  email: smth@gmail.com
+  password: lolkek
+
+queue_credentials:
+  urls:
+    - kafka:9092
+  topic: send-email-events
