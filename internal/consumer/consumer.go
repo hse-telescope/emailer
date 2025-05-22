@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"errors"
+	"fmt"
 
 	"github.com/hse-telescope/emailer/internal/providers/email"
 	"github.com/hse-telescope/emailer/pkg/wrapper"
@@ -62,6 +63,7 @@ func (c Consumer) Consume(ctx context.Context) error {
 
 		err = c.emailProvider.SendEmail(ctx, decodedMessage.EMail, email.WrapperMessageToProviderMessage(decodedMessage))
 		if err != nil {
+			fmt.Println(err)
 			// logger.Error("failed to send email", zap.Error(err))
 		}
 	}

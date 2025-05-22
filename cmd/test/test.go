@@ -9,14 +9,14 @@ import (
 
 func main() {
 	w, err := wrapper.New(kafka.QueueCredentials{
-		URLs:  []string{"localhost:9092"},
-		Topic: "send-email-events",
+		URLs:  []string{"localhost:9092"}, // From config
+		Topic: "send-email-events",        // From config
 	})
 	if err != nil {
 		panic(err)
 	}
 	w.SendEmail(context.Background(), wrapper.Message{
-		EMail:   "o_sidorenkov@mail.ru",
+		EMail:   "ol-sidorenkov@mail.ru",
 		Title:   "lol",
 		Message: "kek",
 	})

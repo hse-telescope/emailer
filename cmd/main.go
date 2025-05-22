@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"fmt"
 	"log"
 	"os"
 	"os/signal"
@@ -15,6 +16,7 @@ func main() {
 	stopCtx, cancel := signal.NotifyContext(context.Background(), syscall.SIGTERM, os.Interrupt)
 
 	configPath := os.Args[1]
+	fmt.Println(configPath)
 	conf, err := config.Parse(configPath)
 	if err != nil {
 		log.Fatalf("Error during config parse: %+v", err)

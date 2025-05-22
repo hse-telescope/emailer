@@ -16,6 +16,8 @@ type App struct {
 }
 
 func New(ctx context.Context, conf config.Config) (App, error) {
+	fmt.Printf("%+v\n", conf)
+
 	addr := fmt.Sprintf("%s:%d", conf.EmailCredentials.Host, conf.EmailCredentials.Port)
 	auth := smtp.PlainAuth(
 		"",
