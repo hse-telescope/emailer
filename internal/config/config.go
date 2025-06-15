@@ -17,6 +17,7 @@ type EmailCredentials struct {
 
 // Config ...
 type Config struct {
+	Port             uint16                 `yaml:"port"`
 	EmailCredentials EmailCredentials       `yaml:"email_credentials"`
 	QueueCredentials kafka.QueueCredentials `yaml:"queue_credentials"`
 }

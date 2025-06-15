@@ -8,11 +8,13 @@ import (
 	"github.com/hse-telescope/emailer/internal/config"
 	"github.com/hse-telescope/emailer/internal/consumer"
 	"github.com/hse-telescope/emailer/internal/providers/email"
+	"github.com/hse-telescope/emailer/internal/server"
 )
 
 type App struct {
 	emailProvider email.Provider
 	consumer      consumer.Consumer
+	server        *server.Server
 }
 
 func New(ctx context.Context, conf config.Config) (App, error) {
@@ -32,13 +34,19 @@ func New(ctx context.Context, conf config.Config) (App, error) {
 		return App{}, err
 	}
 
+	server := server.New(conf)
+
 	return App{
+		server:        server,
 		emailProvider: emailProvider,
 		consumer:      consumer,
 	}, nil
 }
 
 func (a App) Run(ctx context.Context) error {
+	go func() {
+		a.server.Start()
+	}()
 	return a.consumer.Consume(ctx)
 }
 
