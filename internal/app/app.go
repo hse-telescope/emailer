@@ -47,7 +47,8 @@ func (a App) Run(ctx context.Context) error {
 	go func() {
 		a.server.Start()
 	}()
-	return a.consumer.Consume(ctx)
+	a.consumer.Consume(ctx)
+	return nil
 }
 
 func (a App) Shutdown() {
